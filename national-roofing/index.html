@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>National Roofing</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#B87333;--fg:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Oswald,sans-serif;background:#080808;color:#eee;overflow-x:hidden;cursor:none}
+#cur{position:fixed;width:12px;height:12px;border-radius:50%;background:var(--ac);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
+#cur2{position:fixed;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--ac);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;transition:all .1s ease}
+.prev{background:var(--ac);color:var(--fg);text-align:center;padding:9px;font-size:11px;letter-spacing:2px;font-weight:800}
+nav{position:sticky;top:0;z-index:100;height:68px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-size:18px;font-weight:800;letter-spacing:-.5px}.logo em{color:var(--ac);font-style:normal}
+.nav-r{display:flex;align-items:center;gap:14px}
+.nph{color:var(--ac);font-size:15px;font-weight:700;text-decoration:none}
+.nbtn{background:var(--ac);color:var(--fg);padding:9px 20px;border-radius:7px;font-size:13px;font-weight:800;border:none;cursor:none}
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden}
+.hanim{position:absolute;inset:0;z-index:0}.hanim svg{width:100%;height:100%;display:block}
+.hov{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(4,8,16,.98) 0%,rgba(4,8,16,.88) 38%,rgba(4,8,16,.35) 65%,rgba(0,0,0,0) 100%)}
+.hc{position:relative;z-index:2;padding:0 52px;max-width:700px}
+.badge{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:var(--ac);padding:5px 16px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:2px;margin-bottom:20px;backdrop-filter:blur(8px)}
+h1{font-size:clamp(44px,5.5vw,82px);font-weight:900;line-height:.93;letter-spacing:-2px;margin-bottom:12px}
+h1 b{color:var(--ac);font-weight:900}
+.sub{font-size:15px;color:var(--ac);font-weight:600;margin-bottom:10px}
+.desc{font-size:15px;color:#94a3b8;line-height:1.65;max-width:520px;margin-bottom:36px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.ba{background:var(--ac);color:var(--fg);padding:14px 32px;border-radius:9px;font-size:15px;font-weight:800;border:none;cursor:none;transition:all .2s}
+.ba:hover{opacity:.9;transform:translateY(-2px)}
+.bb{background:rgba(255,255,255,.07);color:#eee;padding:14px 32px;border-radius:9px;font-size:15px;font-weight:700;border:1.5px solid rgba(255,255,255,.15);cursor:none;transition:all .2s;text-decoration:none}
+.bb:hover{border-color:var(--ac);color:var(--ac)}
+.trust{background:var(--ac);padding:16px 48px;display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.ti{color:var(--fg);font-size:12px;font-weight:800;letter-spacing:.3px}
+.ti::before{content:'✓ '}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#0c0c0c;border-bottom:1px solid rgba(255,255,255,.05)}
+.sbox{padding:36px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}
+.sbox:last-child{border-right:none}
+.snum{font-size:44px;font-weight:900;color:var(--ac);line-height:1;letter-spacing:-2px}
+.slbl{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+.sec{padding:80px 48px;background:#080808}
+.elbl{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(26px,3.5vw,48px);font-weight:900;letter-spacing:-1.5px;margin-bottom:14px;line-height:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.04);margin-top:44px;border:1px solid rgba(255,255,255,.04)}
+.svc{background:#0d0d0d;padding:28px;transition:all .3s;border-left:3px solid transparent;cursor:none}
+.svc:hover{border-left-color:var(--ac);background:#111;transform:translateX(3px)}
+.ico{font-size:34px;display:block;margin-bottom:14px}
+.sn{font-size:17px;font-weight:800;margin-bottom:7px;letter-spacing:-.3px}
+.sd{font-size:13px;color:#666;line-height:1.6}
+.revs{padding:80px 48px;background:#0a0a0a}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.rv{background:#0f0f0f;border:1px solid rgba(255,255,255,.05);border-top:3px solid var(--ac);padding:24px;transition:all .3s}
+.rv:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.stars{color:var(--ac);font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.rv p{font-size:13px;color:#666;line-height:1.7;margin-bottom:12px;font-style:italic}
+.rv b{font-size:13px;color:#eee;display:block}
+.rv small{font-size:11px;color:#444}
+.cta{padding:80px 48px;text-align:center;background:#0c0c0c;border-top:1px solid rgba(255,255,255,.05)}
+.cta h2{margin-bottom:8px}
+.cta-ph{font-size:clamp(32px,4.5vw,68px);font-weight:900;color:var(--ac);letter-spacing:-2px;margin:20px 0;animation:gph 2.5s ease-in-out infinite}
+@keyframes gph{0%,100%{filter:drop-shadow(0 0 8px rgba(200,160,50,0))}50%{filter:drop-shadow(0 0 30px rgba(200,160,50,.5))}}
+.cta p{color:#666;font-size:13px;margin-bottom:28px}
+.cbtn{background:var(--ac);color:var(--fg);padding:16px 48px;border-radius:9px;font-size:17px;font-weight:800;border:none;cursor:none}
+footer{background:#040404;border-top:1px solid rgba(255,255,255,.05);padding:44px 48px;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
+.fl{font-size:20px;font-weight:800}.fl em{color:var(--ac);font-style:normal}
+.fd{font-size:12px;color:#444;line-height:2;margin-top:6px}
+.fs h4{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.fs ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.fs li{font-size:12px;color:#444}
+.fr{text-align:right}
+.fr h4{color:var(--ac);font-weight:700;font-size:14px;margin-bottom:6px}
+.fr p{font-size:12px;color:#444;line-height:1.7}
+@media(max-width:768px){
+  nav,.hc,.trust,.sec,.revs,.cta,footer{padding-left:20px;padding-right:20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .rgrid{grid-template-columns:1fr}
+  h1{letter-spacing:-1px}
+}
+</style></head><body>
+<div id="cur"></div><div id="cur2"></div>
+<div class="prev">✦ REDESIGN SAMPLE — Exclusively for National Roofing ✦</div>
+<nav>
+  <div class="logo">National<em>.</em></div>
+  <div class="nav-r"><a class="nph" href="tel:(202) 271-4377">(202) 271-4377</a><button class="nbtn">Free Estimate</button></div>
+</nav>
+<section class="hero">
+  <div class="hanim"><svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+<style>
+.rd{animation:rf linear infinite}.r1{animation-duration:1.1s;animation-delay:0s}.r2{animation-duration:1.4s;animation-delay:.2s}
+.r3{animation-duration:1s;animation-delay:.4s}.r4{animation-duration:1.3s;animation-delay:.6s}.r5{animation-duration:1.2s;animation-delay:.8s}
+.sh{animation:sa .5s ease forwards;opacity:0}
+.s01{animation-delay:.05s}.s02{animation-delay:.1s}.s03{animation-delay:.15s}.s04{animation-delay:.2s}.s05{animation-delay:.25s}
+.s06{animation-delay:.3s}.s07{animation-delay:.35s}.s08{animation-delay:.4s}.s09{animation-delay:.45s}.s10{animation-delay:.5s}
+.s11{animation-delay:.55s}.s12{animation-delay:.6s}.s13{animation-delay:.65s}.s14{animation-delay:.7s}.s15{animation-delay:.75s}
+.s16{animation-delay:.8s}.s17{animation-delay:.85s}.s18{animation-delay:.9s}.s19{animation-delay:.95s}.s20{animation-delay:1s}
+.s21{animation-delay:1.05s}.s22{animation-delay:1.1s}.s23{animation-delay:1.15s}.s24{animation-delay:1.2s}
+.gf{stroke-dasharray:14,10;animation:gflow 1.4s linear infinite}
+.lg{animation:lgt 6s ease-in-out infinite}
+@keyframes rf{0%{transform:translate(0,-30px);opacity:1}100%{transform:translate(24px,940px);opacity:.2}}
+@keyframes sa{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes gflow{0%{stroke-dashoffset:48}100%{stroke-dashoffset:0}}
+@keyframes lgt{0%,93%,100%{opacity:0}94%,99%{opacity:.2}}
+</style>
+<linearGradient id="roofg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1510"/><stop offset="100%" stop-color="#252018"/></linearGradient>
+<filter id="g4"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1440" height="900" fill="#04040C"/>
+<!-- Storm clouds -->
+<ellipse cx="200" cy="80" rx="240" ry="90" fill="#080814"/><ellipse cx="500" cy="60" rx="280" ry="80" fill="#0A0A18"/>
+<ellipse cx="850" cy="90" rx="320" ry="100" fill="#080810"/><ellipse cx="1200" cy="70" rx="260" ry="85" fill="#0A0A1A"/>
+<ellipse cx="1420" cy="100" rx="200" ry="70" fill="#08080E"/>
+<!-- Lightning bg flash -->
+<rect class="lg" width="1440" height="900" fill="rgba(220,200,100,.18)"/>
+<!-- Rain — dense, full coverage -->
+<g class="rd r1"><rect x="60" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r2"><rect x="130" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r3"><rect x="200" width="1.5" height="28" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r4"><rect x="270" width="1.5" height="22" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r5"><rect x="340" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.5)"/></g>
+<g class="rd r1" style="animation-delay:.3s"><rect x="410" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r2" style="animation-delay:.5s"><rect x="480" width="1.5" height="24" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r3" style="animation-delay:.7s"><rect x="550" width="1.5" height="28" rx="1" fill="rgba(184,115,51,.5)"/></g>
+<g class="rd r4" style="animation-delay:.9s"><rect x="620" width="1.5" height="22" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r5" style="animation-delay:1.1s"><rect x="690" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r1" style="animation-delay:.4s"><rect x="760" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r2" style="animation-delay:.6s"><rect x="830" width="1.5" height="28" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r3" style="animation-delay:.8s"><rect x="900" width="1.5" height="24" rx="1" fill="rgba(184,115,51,.5)"/></g>
+<g class="rd r4" style="animation-delay:1s"><rect x="970" width="1.5" height="22" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r5" style="animation-delay:.1s"><rect x="1040" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r1" style="animation-delay:.35s"><rect x="1110" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r2" style="animation-delay:.55s"><rect x="1180" width="1.5" height="28" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r3" style="animation-delay:.75s"><rect x="1250" width="1.5" height="24" rx="1" fill="rgba(184,115,51,.5)"/></g>
+<g class="rd r4" style="animation-delay:.95s"><rect x="1320" width="1.5" height="22" rx="1" fill="rgba(184,115,51,.45)"/></g>
+<g class="rd r5" style="animation-delay:.15s"><rect x="1390" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.55)"/></g>
+<g class="rd r1" style="animation-delay:.25s"><rect x="95" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r3" style="animation-delay:.45s"><rect x="235" width="1.5" height="24" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r5" style="animation-delay:.65s"><rect x="375" width="1.5" height="22" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r2" style="animation-delay:.85s"><rect x="515" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r4" style="animation-delay:1.05s"><rect x="655" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r1" style="animation-delay:.2s"><rect x="795" width="1.5" height="24" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r3" style="animation-delay:.4s"><rect x="935" width="1.5" height="22" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r5" style="animation-delay:.6s"><rect x="1075" width="1.5" height="26" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r2" style="animation-delay:.8s"><rect x="1215" width="1.5" height="20" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<g class="rd r4" style="animation-delay:1s"><rect x="1355" width="1.5" height="24" rx="1" fill="rgba(184,115,51,.4)"/></g>
+<!-- ROOF MASSIVE - full width pitch -->
+<polygon points="720,140 1440,640 0,640" fill="url(#roofg)" stroke="#B87333" stroke-width="3"/>
+<!-- Shingle rows animating in, full width coverage -->
+<g class="sh s01"><rect x="0" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s02"><rect x="110" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s03"><rect x="220" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s04"><rect x="330" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s05"><rect x="440" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s06"><rect x="550" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s07"><rect x="660" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s08"><rect x="770" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s09"><rect x="880" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s10"><rect x="990" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s11"><rect x="1100" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s12"><rect x="1210" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s13"><rect x="1320" y="612" width="108" height="20" rx="2" fill="#201A12" stroke="#B87333" stroke-width=".7"/></g>
+<g class="sh s02"><rect x="54" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s03"><rect x="156" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s04"><rect x="258" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s05"><rect x="360" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s06"><rect x="462" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s07"><rect x="564" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s08"><rect x="666" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s09"><rect x="768" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s10"><rect x="870" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s11"><rect x="972" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s12"><rect x="1074" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s13"><rect x="1176" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s14"><rect x="1278" y="584" width="100" height="19" rx="2" fill="#1C1610" stroke="#B87333" stroke-width=".6"/></g>
+<g class="sh s04"><rect x="120" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s05"><rect x="214" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s06"><rect x="308" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s07"><rect x="402" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s08"><rect x="496" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s09"><rect x="590" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s10"><rect x="684" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s11"><rect x="778" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s12"><rect x="872" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s13"><rect x="966" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s14"><rect x="1060" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s15"><rect x="1154" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s16"><rect x="1248" y="554" width="92" height="18" rx="2" fill="#18140E" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s07"><rect x="200" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s08"><rect x="284" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s09"><rect x="368" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s10"><rect x="452" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s11"><rect x="536" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s12"><rect x="620" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s13"><rect x="704" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s14"><rect x="788" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s15"><rect x="872" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s16"><rect x="956" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s17"><rect x="1040" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s18"><rect x="1124" y="518" width="82" height="17" rx="2" fill="#141008" stroke="#B87333" stroke-width=".5"/></g>
+<g class="sh s10"><rect x="300" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s11"><rect x="374" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s12"><rect x="448" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s13"><rect x="522" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s14"><rect x="596" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s15"><rect x="670" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s16"><rect x="744" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s17"><rect x="818" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s18"><rect x="892" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s19"><rect x="966" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s20"><rect x="1040" y="478" width="72" height="16" rx="2" fill="#100E06" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s13"><rect x="420" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s14"><rect x="484" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s15"><rect x="548" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s16"><rect x="612" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s17"><rect x="676" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s18"><rect x="740" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s19"><rect x="804" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s20"><rect x="868" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s21"><rect x="932" y="434" width="62" height="15" rx="2" fill="#0C0A04" stroke="#B87333" stroke-width=".4"/></g>
+<g class="sh s16"><rect x="560" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s17"><rect x="614" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s18"><rect x="668" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s19"><rect x="722" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s20"><rect x="776" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s21"><rect x="830" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s22"><rect x="884" y="386" width="52" height="14" rx="2" fill="#080604" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s19"><rect x="650" y="336" width="44" height="13" rx="2" fill="#060402" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s20"><rect x="696" y="336" width="44" height="13" rx="2" fill="#060402" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s21"><rect x="742" y="336" width="44" height="13" rx="2" fill="#060402" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s22"><rect x="788" y="336" width="44" height="13" rx="2" fill="#060402" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s23"><rect x="700" y="284" width="38" height="12" rx="2" fill="#060402" stroke="#B87333" stroke-width=".3"/></g>
+<g class="sh s24"><rect x="740" y="284" width="38" height="12" rx="2" fill="#060402" stroke="#B87333" stroke-width=".3"/></g>
+<!-- Ridge -->
+<rect x="710" y="138" width="20" height="14" rx="7" fill="#B87333"/>
+<!-- Gutters -->
+<rect y="638" width="1440" height="10" rx="5" fill="#B87333" opacity=".7"/>
+<path class="gf" d="M0 648 V730" fill="none" stroke="rgba(184,115,51,.5)" stroke-width="7" stroke-linecap="round"/>
+<path class="gf" d="M1440 648 V730" fill="none" stroke="rgba(184,115,51,.5)" stroke-width="7" stroke-linecap="round" style="animation-delay:.5s"/>
+<!-- Building below -->
+<rect y="648" width="1440" height="260" fill="#080808"/>
+<rect x="100" y="600" width="130" height="48" fill="#0A0A0A"/>
+<rect x="1210" y="592" width="140" height="56" fill="#0A0A0A"/>
+</svg></div>
+  <div class="hov"></div>
+  <div class="hc">
+    <div class="badge">68 Years Roofing the Nation's Capital</div>
+    <h1>Washington DC's Premier<br><b>Roofing</b><br>Contractor</h1>
+    <div class="sub">Flat Roofs · Slate · Shingles · Gutters · Skylights</div>
+    <p class="desc">Licensed &amp; insured. Serving DC, MD &amp; VA with honest work and fair pricing. Call or get your free estimate online — no commitment required.</p>
+    <div class="btns"><button class="ba">Get Free Estimate</button><a class="bb" href="tel:(202) 271-4377">Call (202) 271-4377</a></div>
+  </div>
+</section>
+<div class="trust"><div class="ti">Licensed DC Roofing Contractor</div><div class="ti">Flat Roof Specialists</div><div class="ti">Free Estimates</div><div class="ti">DC, MD & VA Since 1956</div><div class="ti">Fully Insured</div></div>
+<div class="stats"><div class="sbox"><div class="snum">68</div><div class="slbl">Years in DC</div></div><div class="sbox"><div class="snum">3,200+</div><div class="slbl">Roofs Installed</div></div><div class="sbox"><div class="snum">4.8★</div><div class="slbl">Google Rating</div></div><div class="sbox"><div class="snum">100%</div><div class="slbl">Licensed & Insured</div></div></div>
+<section class="sec">
+  <div class="elbl">What We Do</div><h2>Our Services</h2>
+  <div class="grid"><div class="svc"><span class="ico">🏗️</span><div class="sn">Flat Roof Installation</div><div class="sd">TPO, EPDM, modified bitumen & built-up roofing for DC's rowhouses and commercial buildings.</div></div><div class="svc"><span class="ico">🔧</span><div class="sn">Flat Roof Repair</div><div class="sd">Leaks, blistering, ponding water, seam separation — diagnosed and fixed before structural damage occurs.</div></div><div class="svc"><span class="ico">🏠</span><div class="sn">Slate & Shingle</div><div class="sd">Slate, asphalt, wood shake & metal roofing installation and repair. We match historic DC architecture.</div></div><div class="svc"><span class="ico">🌧️</span><div class="sn">Gutter Services</div><div class="sd">Gutter installation, cleaning, repair & guards. Protect your foundation from DC's heavy rains.</div></div><div class="svc"><span class="ico">☀️</span><div class="sn">Skylight Installation</div><div class="sd">Velux & Fakro skylights for rowhouses and flat-roofed buildings. Installation & leak repair.</div></div><div class="svc"><span class="ico">📋</span><div class="sn">Free Roof Inspection</div><div class="sd">Thorough inspection with written report. Insurance claim support. No-pressure, honest assessment.</div></div></div>
+</section>
+<section class="revs">
+  <div class="elbl">Reviews</div><h2>What Neighbors Say</h2>
+  <div class="rgrid"><div class="rv"><div class="stars">★★★★★</div><p>"National Roofing fixed our leaking K Street office flat roof in two days. Completely waterproof ever since. Professional and fairly priced."</p><b>Robert J.</b><small>Washington, DC</small></div><div class="rv"><div class="stars">★★★★★</div><p>"Replaced our flat roof on a 1920s rowhouse in Columbia Heights. Matched the parapet perfectly, flawless work."</p><b>Maria T.</b><small>Columbia Heights, DC</small></div><div class="rv"><div class="stars">★★★★★</div><p>"Skylight installation was immaculate. No leaks after 2 years, perfect flashing. They know what they're doing."</p><b>David H.</b><small>Georgetown, DC</small></div></div>
+</section>
+<div class="cta">
+  <div class="elbl">Get In Touch</div>
+  <h2>Ready to Help — <b style="color:var(--ac)">Right Now.</b></h2>
+  <div class="cta-ph">(202) 271-4377</div>
+  <p>1629 K St NW Suite 300, Washington DC · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f19f9085989e9f909d839e9e97989f969592b1969c90989ddf929e9c">[email&#160;protected]</a></p>
+  <button class="cbtn">Book Free Estimate →</button>
+</div>
+<footer>
+  <div><div class="fl">National<em>.</em></div><div class="fd">1629 K St NW Suite 300, Washington DC<br>(202) 271-4377</div></div>
+  <div class="fs"><h4>Services</h4><ul><li>Flat Roof Installation</li><li>Flat Roof Repair</li><li>Slate & Shingle</li><li>Gutter Services</li><li>Skylight Install</li><li>Free Inspection</li></ul></div>
+  <div class="fr"><h4>This Is Your Future Website.</h4><p>Reply to claim your free redesign consultation.<br><span style="opacity:.3">Sample — National Roofing</span></p></div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const c=document.getElementById('cur'),c2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListen

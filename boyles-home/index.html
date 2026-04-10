@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boyles Home Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#C0642A;--fg:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Nunito,sans-serif;background:#080808;color:#eee;overflow-x:hidden;cursor:none}
+#cur{position:fixed;width:12px;height:12px;border-radius:50%;background:var(--ac);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
+#cur2{position:fixed;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--ac);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;transition:all .1s ease}
+.prev{background:var(--ac);color:var(--fg);text-align:center;padding:9px;font-size:11px;letter-spacing:2px;font-weight:800}
+nav{position:sticky;top:0;z-index:100;height:68px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-size:18px;font-weight:800;letter-spacing:-.5px}.logo em{color:var(--ac);font-style:normal}
+.nav-r{display:flex;align-items:center;gap:14px}
+.nph{color:var(--ac);font-size:15px;font-weight:700;text-decoration:none}
+.nbtn{background:var(--ac);color:var(--fg);padding:9px 20px;border-radius:7px;font-size:13px;font-weight:800;border:none;cursor:none}
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden}
+.hanim{position:absolute;inset:0;z-index:0}.hanim svg{width:100%;height:100%;display:block}
+.hov{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(248,244,238,.98) 0%,rgba(248,244,238,.9) 38%,rgba(248,244,238,.3) 65%,rgba(0,0,0,0) 100%)}
+.hc{position:relative;z-index:2;padding:0 52px;max-width:700px}
+.badge{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:var(--ac);padding:5px 16px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:2px;margin-bottom:20px;backdrop-filter:blur(8px)}
+h1{font-size:clamp(44px,5.5vw,82px);font-weight:900;line-height:.93;letter-spacing:-2px;margin-bottom:12px}
+h1 b{color:var(--ac);font-weight:900}
+.sub{font-size:15px;color:var(--ac);font-weight:600;margin-bottom:10px}
+.desc{font-size:15px;color:#94a3b8;line-height:1.65;max-width:520px;margin-bottom:36px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.ba{background:var(--ac);color:var(--fg);padding:14px 32px;border-radius:9px;font-size:15px;font-weight:800;border:none;cursor:none;transition:all .2s}
+.ba:hover{opacity:.9;transform:translateY(-2px)}
+.bb{background:rgba(255,255,255,.07);color:#eee;padding:14px 32px;border-radius:9px;font-size:15px;font-weight:700;border:1.5px solid rgba(255,255,255,.15);cursor:none;transition:all .2s;text-decoration:none}
+.bb:hover{border-color:var(--ac);color:var(--ac)}
+.trust{background:var(--ac);padding:16px 48px;display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.ti{color:var(--fg);font-size:12px;font-weight:800;letter-spacing:.3px}
+.ti::before{content:'✓ '}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#0c0c0c;border-bottom:1px solid rgba(255,255,255,.05)}
+.sbox{padding:36px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}
+.sbox:last-child{border-right:none}
+.snum{font-size:44px;font-weight:900;color:var(--ac);line-height:1;letter-spacing:-2px}
+.slbl{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+.sec{padding:80px 48px;background:#080808}
+.elbl{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(26px,3.5vw,48px);font-weight:900;letter-spacing:-1.5px;margin-bottom:14px;line-height:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.04);margin-top:44px;border:1px solid rgba(255,255,255,.04)}
+.svc{background:#0d0d0d;padding:28px;transition:all .3s;border-left:3px solid transparent;cursor:none}
+.svc:hover{border-left-color:var(--ac);background:#111;transform:translateX(3px)}
+.ico{font-size:34px;display:block;margin-bottom:14px}
+.sn{font-size:17px;font-weight:800;margin-bottom:7px;letter-spacing:-.3px}
+.sd{font-size:13px;color:#666;line-height:1.6}
+.revs{padding:80px 48px;background:#0a0a0a}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.rv{background:#0f0f0f;border:1px solid rgba(255,255,255,.05);border-top:3px solid var(--ac);padding:24px;transition:all .3s}
+.rv:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.stars{color:var(--ac);font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.rv p{font-size:13px;color:#666;line-height:1.7;margin-bottom:12px;font-style:italic}
+.rv b{font-size:13px;color:#eee;display:block}
+.rv small{font-size:11px;color:#444}
+.cta{padding:80px 48px;text-align:center;background:#0c0c0c;border-top:1px solid rgba(255,255,255,.05)}
+.cta h2{margin-bottom:8px}
+.cta-ph{font-size:clamp(32px,4.5vw,68px);font-weight:900;color:var(--ac);letter-spacing:-2px;margin:20px 0;animation:gph 2.5s ease-in-out infinite}
+@keyframes gph{0%,100%{filter:drop-shadow(0 0 8px rgba(200,160,50,0))}50%{filter:drop-shadow(0 0 30px rgba(200,160,50,.5))}}
+.cta p{color:#666;font-size:13px;margin-bottom:28px}
+.cbtn{background:var(--ac);color:var(--fg);padding:16px 48px;border-radius:9px;font-size:17px;font-weight:800;border:none;cursor:none}
+footer{background:#040404;border-top:1px solid rgba(255,255,255,.05);padding:44px 48px;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
+.fl{font-size:20px;font-weight:800}.fl em{color:var(--ac);font-style:normal}
+.fd{font-size:12px;color:#444;line-height:2;margin-top:6px}
+.fs h4{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.fs ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.fs li{font-size:12px;color:#444}
+.fr{text-align:right}
+.fr h4{color:var(--ac);font-weight:700;font-size:14px;margin-bottom:6px}
+.fr p{font-size:12px;color:#444;line-height:1.7}
+@media(max-width:768px){
+  nav,.hc,.trust,.sec,.revs,.cta,footer{padding-left:20px;padding-right:20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .rgrid{grid-template-columns:1fr}
+  h1{letter-spacing:-1px}
+}
+</style></head><body>
+<div id="cur"></div><div id="cur2"></div>
+<div class="prev">✦ REDESIGN SAMPLE — Exclusively for Boyles Home Services ✦</div>
+<nav>
+  <div class="logo">Boyles<em>.</em></div>
+  <div class="nav-r"><a class="nph" href="tel:(301) 221-9021">(301) 221-9021</a><button class="nbtn">Free Estimate</button></div>
+</nav>
+<section class="hero">
+  <div class="hanim"><svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs><style>
+.wl{animation:wlg 3s ease-in-out infinite}.wl1{animation-delay:0s}.wl2{animation-delay:.5s}.wl3{animation-delay:1s}.wl4{animation-delay:1.5s}
+.ck{stroke-dasharray:52;stroke-dashoffset:52;animation:ckd .6s ease forwards}
+.ck1{animation-delay:1.4s}.ck2{animation-delay:1.9s}.ck3{animation-delay:2.4s}.ck4{animation-delay:2.9s}.ck5{animation-delay:3.4s}.ck6{animation-delay:3.9s}
+.tb{animation:tob 3s ease-in-out infinite}.tb1{animation-delay:0s}.tb2{animation-delay:.5s}.tb3{animation-delay:1s}
+.lf{animation:lfl 5s ease-in-out infinite}.lf1{animation-delay:0s}.lf2{animation-delay:1.8s}.lf3{animation-delay:3.6s}
+.bird{animation:bfly 12s ease-in-out infinite;transform-origin:500px 200px}
+@keyframes wlg{0%,100%{fill:rgba(180,80,20,.2)}50%{fill:rgba(220,120,40,.6)}}
+@keyframes ckd{to{stroke-dashoffset:0}}
+@keyframes tob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes lfl{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(12deg)}}
+@keyframes bfly{0%,100%{transform:translateX(0)}50%{transform:translateX(120px)}}
+</style>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#FDEAC8"/>
+  <stop offset="60%" stop-color="#FDF0DC"/>
+  <stop offset="100%" stop-color="#FAF0E6"/>
+</linearGradient>
+<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#8FC870"/>
+  <stop offset="100%" stop-color="#6EA854"/>
+</linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#sky)"/>
+<!-- Warm golden sun -->
+<circle cx="1340" cy="100" r="90" fill="rgba(255,200,80,.12)"/>
+<circle cx="1340" cy="100" r="62" fill="rgba(255,190,60,.2)"/>
+<circle cx="1340" cy="100" r="38" fill="rgba(255,180,50,.35)"/>
+<!-- Soft clouds -->
+<ellipse cx="300" cy="130" rx="160" ry="50" fill="rgba(255,255,255,.7)"/>
+<ellipse cx="420" cy="118" rx="110" ry="44" fill="rgba(255,255,255,.6)"/>
+<ellipse cx="1000" cy="100" rx="140" ry="46" fill="rgba(255,255,255,.55)"/>
+<ellipse cx="1100" cy="90" rx="100" ry="38" fill="rgba(255,255,255,.5)"/>
+<!-- Bird silhouette -->
+<g class="bird"><text x="500" y="200" fill="rgba(100,60,20,.4)" font-size="18">🐦</text></g>
+<!-- Grass -->
+<rect y="710" width="1440" height="190" fill="url(#grass)"/>
+<ellipse cx="720" cy="713" rx="900" ry="26" fill="#5A9840"/>
+<!-- Background trees — warm autumn palette -->
+<rect x="52" y="476" width="24" height="244" rx="12" fill="#5C3A1E"/>
+<ellipse cx="64" cy="428" rx="66" ry="98" fill="#D4701A"/>
+<ellipse cx="44" cy="458" rx="50" ry="68" fill="#B85C12"/>
+<ellipse cx="84" cy="455" rx="50" ry="68" fill="#E07A20"/>
+<rect x="1348" y="486" width="24" height="234" rx="12" fill="#5C3A1E"/>
+<ellipse cx="1360" cy="436" rx="64" ry="94" fill="#C4601A"/>
+<ellipse cx="1340" cy="464" rx="48" ry="66" fill="#A04E10"/>
+<ellipse cx="1380" cy="461" rx="48" ry="66" fill="#D86E1A"/>
+<!-- Additional mid trees -->
+<rect x="180" y="550" width="16" height="170" rx="8" fill="#5C3A1E"/>
+<ellipse cx="188" cy="510" rx="44" ry="66" fill="#E07A20"/>
+<ellipse cx="188" cy="480" rx="32" ry="48" fill="#F08828"/>
+<rect x="1234" y="560" width="16" height="160" rx="8" fill="#5C3A1E"/>
+<ellipse cx="1242" cy="520" rx="44" ry="64" fill="#D4701A"/>
+<ellipse cx="1242" cy="490" rx="30" ry="46" fill="#E07A20"/>
+<!-- HOUSE — warm terracotta/cream palette -->
+<rect x="396" y="396" width="648" height="334" rx="8" fill="#FDF6EC" stroke="#C0642A" stroke-width="2.5"/>
+<!-- Horizontal siding lines -->
+<rect x="396" y="442" width="648" height="4" rx="2" fill="rgba(192,100,42,.08)"/>
+<rect x="396" y="490" width="648" height="4" rx="2" fill="rgba(192,100,42,.08)"/>
+<rect x="396" y="538" width="648" height="4" rx="2" fill="rgba(192,100,42,.08)"/>
+<rect x="396" y="586" width="648" height="4" rx="2" fill="rgba(192,100,42,.08)"/>
+<rect x="396" y="634" width="648" height="4" rx="2" fill="rgba(192,100,42,.08)"/>
+<rect x="396" y="682" width="648" height="4" rx="2" fill="rgba(192,100,42,.08)"/>
+<!-- Roof — terracotta -->
+<polygon points="720,218 1066,396 374,396" fill="#C0642A" stroke="#A04E1A" stroke-width="2.5"/>
+<!-- Roof ridge tiles -->
+<rect x="704" y="216" width="32" height="12" rx="6" fill="#E07A3A"/>
+<!-- Chimney — brick terracotta -->
+<rect x="854" y="258" width="52" height="90" rx="4" fill="#B85C22" stroke="#A04E1A" stroke-width="1.5"/>
+<rect x="860" y="266" width="16" height="8" rx="2" fill="rgba(255,255,255,.15)"/>
+<rect x="880" y="266" width="16" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+<rect x="860" y="278" width="16" height="8" rx="2" fill="rgba(0,0,0,.1)"/>
+<!-- Windows left — warm amber glow -->
+<rect x="430" y="450" width="122" height="114" rx="7" fill="white" stroke="#C0642A" stroke-width="2"/>
+<rect class="wl wl1" x="434" y="454" width="54" height="50" rx="3"/>
+<rect class="wl wl2" x="492" y="454" width="56" height="50" rx="3"/>
+<rect class="wl wl3" x="434" y="508" width="54" height="50" rx="3"/>
+<rect class="wl wl4" x="492" y="508" width="56" height="50" rx="3"/>
+<!-- Windows right -->
+<rect x="888" y="450" width="122" height="114" rx="7" fill="white" stroke="#C0642A" stroke-width="2"/>
+<rect class="wl wl2" x="892" y="454" width="54" height="50" rx="3"/>
+<rect class="wl wl3" x="950" y="454" width="56" height="50" rx="3"/>
+<rect class="wl wl4" x="892" y="508" width="54" height="50" rx="3"/>
+<rect class="wl wl1" x="950" y="508" width="56" height="50" rx="3"/>
+<!-- Door — deep terracotta -->
+<rect x="634" y="576" width="104" height="154" rx="7" fill="#B85C22" stroke="#A04E1A" stroke-width="2"/>
+<circle cx="728" cy="654" r="7" fill="#C9A84C"/>
+<rect x="642" y="584" width="34" height="56" rx="4" fill="rgba(255,255,255,.1)"/>
+<rect x="682" y="584" width="34" height="56" rx="4" fill="rgba(255,255,255,.08)"/>
+<!-- Award badge on gable -->
+<rect x="602" y="298" width="236" height="42" rx="11" fill="#C0642A" stroke="#FDF6EC" stroke-width="2"/>
+<text x="720" y="324" text-anchor="middle" fill="white" font-size="12" font-weight="700" letter-spacing="1">⭐ EXPERTISE.COM TOP RATED</text>
+<!-- Window boxes with flowers -->
+<rect x="428" y="562" width="126" height="12" rx="6" fill="#8B4513"/>
+<text x="491" y="573" text-anchor="middle" fill="rgba(255,80,80,.7)" font-size="11">🌸🌸🌸</text>
+<rect x="886" y="562" width="126" height="12" rx="6" fill="#8B4513"/>
+<text x="949" y="573" text-anchor="middle" fill="rgba(255,80,80,.7)" font-size="11">🌸🌸🌸</text>
+<!-- CHECKLIST panel right — warm amber accent -->
+<rect x="1118" y="274" width="286" height="392" rx="16" fill="#FDF6EC" stroke="#C0642A" stroke-width="2"/>
+<rect x="1118" y="274" width="286" height="44" rx="16" fill="#C0642A"/>
+<rect x="1118" y="296" width="286" height="22" fill="#C0642A"/>
+<text x="1261" y="302" text-anchor="middle" fill="white" font-size="13" font-weight="800" letter-spacing=".5">OUR SERVICES</text>
+<g transform="translate(1136,336)"><circle cx="12" r="13" fill="rgba(192,100,42,.12)" stroke="#C0642A" stroke-width="1.5"/><polyline class="ck ck1" points="6,12 10,18 20,5" fill="none" stroke="#C0642A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="32" y="17" fill="#3A1A08" font-size="13" font-weight="600">General Repairs</text></g>
+<g transform="translate(1136,384)"><circle cx="12" r="13" fill="rgba(192,100,42,.12)" stroke="#C0642A" stroke-width="1.5"/><polyline class="ck ck2" points="6,12 10,18 20,5" fill="none" stroke="#C0642A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="32" y="17" fill="#3A1A08" font-size="13" font-weight="600">Painting</text></g>
+<g transform="translate(1136,432)"><circle cx="12" r="13" fill="rgba(192,100,42,.12)" stroke="#C0642A" stroke-width="1.5"/><polyline class="ck ck3" points="6,12 10,18 20,5" fill="none" stroke="#C0642A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="32" y="17" fill="#3A1A08" font-size="13" font-weight="600">Doors &amp; Windows</text></g>
+<g transform="translate(1136,480)"><circle cx="12" r="13" fill="rgba(192,100,42,.12)" stroke="#C0642A" stroke-width="1.5"/><polyline class="ck ck4" points="6,12 10,18 20,5" fill="none" stroke="#C0642A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="32" y="17" fill="#3A1A08" font-size="13" font-weight="600">Interior Remodeling</text></g>
+<g transform="translate(1136,528)"><circle cx="12" r="13" fill="rgba(192,100,42,.12)" stroke="#C0642A" stroke-width="1.5"/><polyline class="ck ck5" points="6,12 10,18 20,5" fill="none" stroke="#C0642A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="32" y="17" fill="#3A1A08" font-size="13" font-weight="600">Exterior Work</text></g>
+<g transform="translate(1136,576)"><circle cx="12" r="13" fill="rgba(192,100,42,.12)" stroke="#C0642A" stroke-width="1.5"/><polyline class="ck ck6" points="6,12 10,18 20,5" fill="none" stroke="#C0642A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="32" y="17" fill="#3A1A08" font-size="13" font-weight="600">Seasonal Maintenance</text></g>
+<!-- License badge left — warm terracotta -->
+<rect x="76" y="296" width="234" height="140" rx="14" fill="#FDF6EC" stroke="#C0642A" stroke-width="2"/>
+<rect x="76" y="296" width="234" height="38" rx="14" fill="#C0642A"/>
+<rect x="76" y="316" width="234" height="18" fill="#C0642A"/>
+<text x="193" y="322" text-anchor="middle" fill="white" font-size="11" font-weight="800">LICENSED &amp; INSURED</text>
+<text x="193" y="358" text-anchor="middle" fill="#8B3A0A" font-size="12" font-weight="700">MHIC #130531</text>
+<text x="193" y="378" text-anchor="middle" fill="#8B3A0A" font-size="12" font-weight="700">VA #2705156514</text>
+<line x1="90" y1="392" x2="296" y2="392" stroke="rgba(192,100,42,.2)" stroke-width="1.5"/>
+<text x="193" y="410" text-anchor="middle" fill="#C0642A" font-size="11">Montgomery County MD</text>
+<text x="193" y="428" text-anchor="middle" fill="#C0642A" font-size="11">Northern Virginia</text>
+<!-- Tools — warm colored -->
+<text class="tb tb1" x="256" y="668" fill="rgba(192,100,42,.55)" font-size="54">🔨</text>
+<text class="tb tb2" x="336" y="710" fill="rgba(192,100,42,.45)" font-size="42">🪚</text>
+<text class="tb tb3" x="180" y="710" fill="rgba(192,100,42,.45)" font-size="42">🔧</text>
+<!-- Autumn leaves floating -->
+<text class="lf lf1" x="1068" y="272" fill="rgba(200,90,30,.6)" font-size="28">🍂</text>
+<text class="lf lf2" x="376" y="336" fill="rgba(200,90,30,.45)" font-size="24">🍁</text>
+<text class="lf lf3" x="1098" y="238" fill="rgba(200,90,30,.5)" font-size="22">🍂</text>
+</svg></div>
+  <div class="hov"></div>
+  <div class="hc">
+    <div class="badge">⭐ Top Rated Handyman — Expertise.com Award Winner</div>
+    <h1>Montgomery County's<br>Top Rated<br><b>Handyman Service</b></h1>
+    <div class="sub">Licensed · MHIC #130531 · VA #2705156514 · Expertise.com Award</div>
+    <p class="desc">Licensed &amp; insured. Serving DC, MD &amp; VA with honest work and fair pricing. Call or get your free estimate online — no commitment required.</p>
+    <div class="btns"><button class="ba">Get Free Estimate</button><a class="bb" href="tel:(301) 221-9021">Call (301) 221-9021</a></div>
+  </div>
+</section>
+<div class="trust"><div class="ti">MHIC #130531 Licensed</div><div class="ti">VA #2705156514</div><div class="ti">Top Rated Expertise.com</div><div class="ti">Montgomery & Frederick County</div><div class="ti">Free Estimates</div></div>
+<div class="stats"><div class="sbox"><div class="snum">500+</div><div class="slbl">Happy Customers</div></div><div class="sbox"><div class="snum">10+</div><div class="slbl">Years Serving MD</div></div><div class="sbox"><div class="snum">4.8★</div><div class="slbl">Google Rating</div></div><div class="sbox"><div class="snum">Same Day</div><div class="slbl">Service Available</div></div></div>
+<section class="sec">
+  <div class="elbl">What We Do</div><h2>Our Services</h2>
+  <div class="grid"><div class="svc"><span class="ico">🔨</span><div class="sn">General Repairs</div><div class="sd">No job too small. Drywall, door repairs, fence fixes, minor plumbing — handled with care.</div></div><div class="svc"><span class="ico">🪟</span><div class="sn">Doors & Windows</div><div class="sd">Door installation & adjustment, window repairs, screen replacement, weatherstripping.</div></div><div class="svc"><span class="ico">🏠</span><div class="sn">Interior Remodeling</div><div class="sd">Bathroom updates, kitchen improvements, flooring and complete room refreshes.</div></div><div class="svc"><span class="ico">🎨</span><div class="sn">Painting</div><div class="sd">Interior and exterior painting for rooms, trim, decks and fences across Montgomery County.</div></div><div class="svc"><span class="ico">🌿</span><div class="sn">Exterior Work</div><div class="sd">Deck repairs, fence installation, gutter cleaning and minor exterior improvements.</div></div><div class="svc"><span class="ico">📅</span><div class="sn">Seasonal Maintenance</div><div class="sd">Gutter cleaning, weatherization, pre-winter prep and spring home maintenance packages.</div></div></div>
+</section>
+<section class="revs">
+  <div class="elbl">Reviews</div><h2>What Neighbors Say</h2>
+  <div class="rgrid"><div class="rv"><div class="stars">★★★★★</div><p>"Expertise.com Top Rated for a reason — fixed a long list of issues around our home in one visit. Remarkable."</p><b>Susan P.</b><small>Gaithersburg, MD</small></div><div class="rv"><div class="stars">★★★★★</div><p>"Bathroom refresh — new vanity, lighting, mirror, tile work. Fast, clean, exactly as quoted. MHIC licensed."</p><b>Kevin O.</b><small>Germantown, MD</small></div><div class="rv"><div class="stars">★★★★★</div><p>"Deck repairs and interior painting. On time every day, communicated well, quality is exactly what you'd hope."</p><b>Rachel M.</b><small>Rockville, MD</small></div></div>
+</section>
+<div class="cta">
+  <div class="elbl">Get In Touch</div>
+  <h2>Ready to Help — <b style="color:var(--ac)">Right Now.</b></h2>
+  <div class="cta-ph">(301) 221-9021</div>
+  <p>Montgomery County MD · MHIC #130531 · VA #2705156514 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef8d8096838a9c8780828a9c8a9d99868c8a9caf88828e8683c18c8082">[email&#160;protected]</a></p>
+  <button class="cbtn">Book Free Estimate →</button>
+</div>
+<footer>
+  <div><div class="fl">Boyles<em>.</em></div><div class="fd">Montgomery County MD · MHIC #130531 · VA #2705156514<br>(301) 221-9021</div></div>
+  <div class="fs"><h4>Services</h4><ul><li>General Repairs</li><li>Doors & Windows</li><li>Interior Remodeling</li><li>Painting</li><li>Exterior Work</li><li>Seasonal Maintenance</li></ul></div>
+  <div class="fr"><h4>This Is Your Future Website.</h4><p>Reply to claim your free redesign consultation.<br><span style="opacity:.3">Sample — Boyles Home Services</span></p></div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const c=document.getElementById('cur'),c2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListe
